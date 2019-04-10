@@ -1,23 +1,18 @@
-import React from 'react'
-import { Route, Link } from 'react-router-dom'
-
-const Dashboard = () => (
-  <div>
-    <h3>Dashboard</h3>
-    <p>This is separate route.</p>
-  </div>
-)
+import React, { Fragment } from 'react'
+import { Route, NavLink } from 'react-router-dom'
+import Movies from './Movies'
+import Home from './Home'
 
 const App = () => (
-  <div>
+  <Fragment>
+    <h1>Gotcha Productions!</h1>
     <nav>
-      <Link to="/dashboard">Dashboard</Link>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/movies">All Movies</NavLink>
     </nav>
-    <h1>Welcome to React!</h1>
-    <div>
-      <Route path="/dashboard" component={Dashboard}/>
-    </div>
-  </div>
+    <Route exact path="/" component={Home} />
+    <Route path="/movies" component={Movies} />
+  </Fragment>
 )
 
 export default App
