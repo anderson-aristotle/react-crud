@@ -22,20 +22,20 @@ class Movies extends Component {
       .catch(console.log)
   }
   render () {
-    if (this.state.movie.length === 0) {
-      return Spinner
+    if (this.state.movies.length === 0) {
+      return <Spinner animation="grow" className="m-3" />
+    } else {
+      return (
+        <Fragment>
+          <h4>Movies:</h4>
+          <ul>
+            {this.state.movies.map(movie => (
+              <li key={movie.id}>{movie.title}</li>
+            ))}
+          </ul>
+        </Fragment>
+      )
     }
-    console.log('movies component mounted')
-    return (
-      <Fragment>
-        <h4>Movies:</h4>
-        <ul>
-          {this.state.movies.map(movie => (
-            <li key={movie.id}>{movie.title}</li>
-          ))}
-        </ul>
-      </Fragment>
-    )
   }
 }
 
