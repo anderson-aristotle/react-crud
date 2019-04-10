@@ -3,6 +3,7 @@ import axios from 'axios'
 import apiUrl from './apiConfig'
 
 import Spinner from 'react-bootstrap/Spinner'
+import { Link } from 'react-router-dom'
 
 class Movies extends Component {
   constructor () {
@@ -29,8 +30,10 @@ class Movies extends Component {
         <Fragment>
           <h4>Movies:</h4>
           <ul>
-            {this.state.movies.map(movie => (
-              <li key={movie.id}>{movie.title}</li>
+            {this.state.movies.map(movies => (
+              <li key={movies.id}>
+                <Link to={'/movies/' + movies.id}>{movies.title}</Link>
+              </li>
             ))}
           </ul>
         </Fragment>
